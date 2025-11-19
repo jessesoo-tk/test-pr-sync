@@ -1,0 +1,29 @@
+name: PR Push Check
+
+on:
+  pull_request:
+    types: [synchronize]  # Only runs on subsequent pushes to PR, not when PR is opened
+
+jobs:
+  run-on-pr-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run your checks
+        run: |
+          echo "This runs only when pushing to an existing PR"
+
+      # Example: Add more steps as needed
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20'
+      #
+      # - name: Install dependencies
+      #   run: npm install
+      #
+      # - name: Run tests
+      #   run: npm test
