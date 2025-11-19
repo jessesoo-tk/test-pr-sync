@@ -2,9 +2,7 @@ name: PR Push Check
 
 on:
   pull_request:
-    types: [synchronize]  # Only runs on subsequent pushes to PR, not when PR is opened
-    branches-ignore:
-      - main
+    types: [opened, synchronize]  # Only runs on subsequent pushes to PR, not when PR is opened
 
 jobs:
   run-on-pr-update:
